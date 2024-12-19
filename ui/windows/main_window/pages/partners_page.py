@@ -8,6 +8,7 @@ from ui.windows.modal_window.modal_window import ModalWindow
 from database.CRUDs.PartnerCRUDs import PartnerCRUD
 from database.CRUDs.OrderCRUDs import OrderCRUD
 
+
 class PartnerPageWidget(QWidget, Ui_PartnersPage):
     def __init__(self):
         super().__init__()
@@ -42,7 +43,7 @@ class PartnerPageWidget(QWidget, Ui_PartnersPage):
         # Добавление виджетов партнёров в область прокрутки
         for partner_model in PartnerCRUD.read_partners():
             custom_widget = PartnerCardWidget(self, partner_model)  # Создание карточки партнёра
-            self.verticalLayout_2.addWidget(custom_widget)  # Добавление карточки в лейаут
+            self.verticalLayout_3.addWidget(custom_widget)  # Добавление карточки в лейаут
 
 
 class PartnerCardWidget(QWidget, Ui_PartnerCard):
@@ -65,8 +66,10 @@ class PartnerCardWidget(QWidget, Ui_PartnerCard):
 
         # Настройка кнопок для просмотра заказов и редактирования партнёра
         self.GetOrdersListButton.setText("Просмотреть заказы \n" + partner_model.company_name)
-        self.EditButton.clicked.connect(lambda: ModalWindow(parent, "create/update_partner", "update", partner_model).exec())
-        self.GetOrdersListButton.clicked.connect(lambda: ModalWindow(parent, "get_orders_list", partner_model=partner_model).exec())
+        self.EditButton.clicked.connect(
+            lambda: ModalWindow(parent, "create/update_partner", "update", partner_model).exec())
+        self.GetOrdersListButton.clicked.connect(
+            lambda: ModalWindow(parent, "get_orders_list", partner_model=partner_model).exec())
 
 
 def calculation_of_discount_percentage(partner_id: int) -> int:
