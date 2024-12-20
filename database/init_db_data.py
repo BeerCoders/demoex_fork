@@ -1,9 +1,10 @@
-from database.connection import Base, engine, Session
 from openpyxl import load_workbook
-from database.models.ProductTypeModel import ProductTypeModel
-from database.models.ProductModel import ProductModel
-from database.models.PartnerModel import PartnerModel
+
+from database.connection import Base, engine, Session
 from database.models.OrderModel import OrderModel
+from database.models.PartnerModel import PartnerModel
+from database.models.ProductModel import ProductModel
+from database.models.ProductTypeModel import ProductTypeModel
 
 # Пути к файлам Excel
 BASE_DIR = "Excel/"

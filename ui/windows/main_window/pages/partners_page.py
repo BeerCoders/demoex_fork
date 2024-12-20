@@ -1,12 +1,10 @@
 from PySide6.QtWidgets import QWidget
 
+from database.CRUDs.OrderCRUDs import OrderCRUD
+from database.CRUDs.PartnerCRUDs import PartnerCRUD
 from ui.widgets.PartnerCard import Ui_PartnerCard
 from ui.widgets.PartnersPage import Ui_PartnersPage
-
 from ui.windows.modal_window.modal_window import ModalWindow
-
-from database.CRUDs.PartnerCRUDs import PartnerCRUD
-from database.CRUDs.OrderCRUDs import OrderCRUD
 
 
 class PartnerPageWidget(QWidget, Ui_PartnersPage):
